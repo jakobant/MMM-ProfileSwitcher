@@ -133,6 +133,11 @@ Module.register("MMM-ProfileSwitcher", {
     // This way, when we go back to the default profile we can show a different notification
     change_profile: function (newProfile) {
         // No need to change the layout if we are already in this current profile
+        console.log(newProfile);
+        if (newProfile === "default") {
+
+            this.sendNotification('MMM-YOUTUBE-PAUSE', 'yes');
+        }
         if (newProfile !== this.current_profile) {
             this.sendNotification("CHANGED_PROFILE", {from: this.current_profile, to: newProfile});
 
